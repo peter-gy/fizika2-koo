@@ -18,13 +18,15 @@ class Formula {
      * 
      * @param {String}     description description as simple string
      * @param {String}     display     display as latex string
-     * @param {Variable[]} variables   an array of Variables constituting this formula
+     * @param {Variable}   lhs         a single Variable, the left-hand side of the formula
+     * @param {Variable[]} rhs         an array of Variables, the right-hand side of the formula
      * @param {Stirng}     script      SageMath script to solve this formula
      */
-    constructor(description, display, variables) {
+    constructor(description, display, lhs, rhs) {
         this.description = description
         this.display = display
-        this.variables = variables
+        this.lhs = lhs
+        this.rhs = rhs
     }
 }
 
