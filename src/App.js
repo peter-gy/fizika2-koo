@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 
 import { Exercise } from './components/exercise/exercise.component'
-import { exercises } from './exercises'
 
 class App extends React.Component {
 
@@ -14,13 +13,10 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div>
-        {exercises.map(ex => <Exercise script={ex}/>)}
+        lol
       </div>
     )
   }

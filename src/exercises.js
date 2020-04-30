@@ -8,6 +8,7 @@ class Exercise {
     constructor(description, formulas) {
         this.description = description
         this.formulas = formulas
+        this.script = formulas.map(formula => `${formula.script}`.join('\n\n'))
     }
 }
 
@@ -18,6 +19,7 @@ class Formula {
      * @param {String}     description description as simple string
      * @param {String}     display     display as latex string
      * @param {Variable[]} variables   an array of Variables constituting this formula
+     * @param {Stirng}     script      SageMath script to solve this formula
      */
     constructor(description, display, variables) {
         this.description = description
@@ -32,8 +34,9 @@ class Variable {
      * 
      * @param {String} description description as simple string
      * @param {String} display     display as latex string
+     * @param {String} unit        unit of measure as latex string
      */
-    constructor(description, display) {
+    constructor(description, display, unit) {
         this.description = description
         this.display = display
     }
