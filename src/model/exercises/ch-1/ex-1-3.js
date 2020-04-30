@@ -8,10 +8,10 @@ const V = new Variable('csővezeték térfogata', 'V', 'm3')
 const l = new Variable('cső hosszúság', 'l', 'm')
 const formula_1 = new Formula('A*l', V, [A, l])
 
-const R_vesszo = new Variable('anyagi gázállandó', 'R_vesszo', 'J/kgK')
+const Rvesszo = new Variable('anyagi gázállandó', 'Rvesszo', 'J/kgK')
 const R = new Variable('gázállandó', 'R', 'J/molK')
-const M = new Variable('Moláris tömeg', 'M', 'g/mol')
-const formula_2 = new Formula('R/M', R_vesszo, [R, M])
+const M = new Variable('Moláris tömeg', 'M', 'kg/mol')
+const formula_2 = new Formula('R/M', Rvesszo, [R, M])
 
 const T = new Variable('anyagi hőmérséklet', 'T', 'K')
 const t = new Variable('levegő hőmérséklet', 't', '°C')
@@ -19,30 +19,30 @@ const formula_3 = new Formula('t+273.15', T, [t])
 
 const m = new Variable('levegő tömege', 'm', 'kg')
 const p = new Variable('lég?nyomás', 'p', 'Pa')
-const formula_4 = new Formula('p*V/(R_vesszo*T)', m, [p, V, R_vesszo, T])
+const formula_4 = new Formula('p*V/(Rvesszo*T)', m, [p, V, Rvesszo, T])
 
 const ro = new Variable('levegő sűrűsége', 'ro', 'kg/m3')
 const formula_5 = new Formula('m/V', ro, [m, V])
 
 const dp = new Variable('hidrosztatikai nyomáscsökkenés 1', 'dp', 'Pa')
 const dh = new Variable('vízoszlop süllyedése', 'dh', 'm')
-const formula_6 = new Formula('1000*9,81*dh', dp, [dh])
+const formula_6 = new Formula('1000*9.81*dh', dp, [dh])
 
 const p2 = new Variable('hidrosztatikai nyomáscsökkenés 2', 'p2', 'Pa')
 const formula_7 = new Formula('p-dp', p2, [p, dp])
 
 const m2 = new Variable('maradék tömeg', 'm2', 'kg')
-const formula_8 = new Formula('p2*V/(R_vesszo*T)', m2, [p2, V, R_vesszo, T])
+const formula_8 = new Formula('p2*V/(Rvesszo*T)', m2, [p2, V, Rvesszo, T])
 
 const dm = new Variable('eltávozott tömeg', 'dm', 'kg')
 const formula_9 = new Formula('m-m2', dm, [m, m2])
 
 const Vt = new Variable('távozó levegő térfogata p0 Pa nyomáson', 'Vt', 'dm3')
 const p0 = new Variable('nyomás', 'p0', 'Pa')
-const formula_10 = new Formula('dm*R_vesszo*T/p0', Vt, [dm, R_vesszo, T, p0])
+const formula_10 = new Formula('dm*Rvesszo*T/p0', Vt, [dm, Rvesszo, T, p0])
 
 const T2  = new Variable('lehűléses nyomáscsökkenés 1', 'T2', 'K')
-const formula_11 = new Formula('p2*V/(m*R_vesszo)', T2, [p2, V, m, R_vesszo])
+const formula_11 = new Formula('p2*V/(m*Rvesszo)', T2, [p2, V, m, Rvesszo])
 
 const t2 = new Variable('lehűléses nyomáscsökkenés 2', 't2', '°C')
 const formula_12 = new Formula('T2-273.15', t2, [T2])

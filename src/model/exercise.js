@@ -9,7 +9,7 @@ export class Exercise {
     constructor(description, formulas, tags) {
         this.description = description
         this.formulas = formulas
-        this.script = formulas.map(formula => `${formula.script}`.join('\n\n'))
+        this.script = formulas.map(formula => `${formula.script}`).join('\n\n')
         this.tags = tags
     }
 }
