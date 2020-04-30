@@ -1,18 +1,20 @@
-class Exercise {
+export class Exercise {
 
     /**
      * 
      * @param {String}    description description as simple string 
      * @param {Formula[]} formulas    an array of Formulas associated with this exercise
+     * @param {String[]}  tags        tags/keywords to help identify the given exercise
      */
-    constructor(description, formulas) {
+    constructor(description, formulas, tags) {
         this.description = description
         this.formulas = formulas
         this.script = formulas.map(formula => `${formula.script}`.join('\n\n'))
+        this.tags = tags
     }
 }
 
-class Formula {
+export class Formula {
 
     /**
      * 
@@ -43,7 +45,7 @@ def _(${param_list}):
 
 }
 
-class Variable {
+export class Variable {
 
     /**
      * 
@@ -57,9 +59,3 @@ class Variable {
         this.unit = unit
     }
 }
-
-let var_A = new Variable('csővezeték átlagos keresztmetszete', 'A', 'm2')
-let var_d = new Variable('átmérő', 'd', 'm')
-let var_l = new Variable('hosszúság', 'l', 'm')
-
-let f = new Formula('1/4*(pi)*d^2', var_A, [var_d])
